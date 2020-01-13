@@ -22,3 +22,31 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* My CSS stylings */
+.jumbotron {
+  background-image: url("http://southerlyjournal.com.au/wp-content/uploads/2015/02/ivory-off-white-paper-texture.jpg");
+  text-align: center;
+  margin: 1% 15% 0 15%;
+  font-family: 'Goudy Bookletter 1911',serif;
+  font-size: x-large;
+  color: #222;
+}
+
+.search-form {
+  margin: 2%;
+  padding: 1%;
+  border: 3px solid #222;
+  font-family: 'Goudy Bookletter 1911',serif;
+  font-size: large;
+  color: #222;
+}
+
+.search-title {
+  margin-top: 20px;
+  margin-bottom: -5px;
+  font-family: 'Goudy Bookletter 1911',
+  serif;
+  font-size: large;
+  color: #222;
+}
