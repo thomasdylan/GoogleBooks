@@ -13,6 +13,7 @@ function SearchForm(props) {
                     <div className="col-sm-10">
                         <input
                             type="text"
+                            name="title"
                             className="form-control"
                             id="inputBook"
                             placeholder="Book Title"/>

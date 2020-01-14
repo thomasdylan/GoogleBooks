@@ -14,7 +14,7 @@ class App extends Component {
           <NavBar />
           <MyJumbotron />
           <Switch>
-            <Route exact path="/search" component={Search} />
+            <Route exact path="/" component={Search} />
             <Route exact path="/saved" component={Saved} />
           </Switch>
         </div>
