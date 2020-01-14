@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default {
-    getBooks: function() {
-        return axios.get("/api/books");
+    getBooks: function(query) {
+        return axios.get("/api/books", { params: { q : query }});
     },
     postBook: function(bookData) {
         return axios.post("/api/books", bookData);
