@@ -17,8 +17,9 @@ export default function BookItems({title, author, description, image, link}) {
                                 <small class="text-muted">By: {author}</small>
                             </p>
                             <p class="card-text">
-                                <small class="text-muted">{link}</small>
+                                <a href={link} target="_blank"><small class="text-muted">{link}</small></a>
                             </p>
+                            <button type="button" class="btn btn-success">Save</button>
                         </div>
                     </div>
                 </div>
