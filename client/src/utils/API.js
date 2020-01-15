@@ -1,13 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-    getBooks: function(query) {
-        return axios.get("/api/books", { params: { q : query }});
-    },
-    postBook: function(bookData) {
-        return axios.post("/api/books", bookData);
-    },
-    deleteBook: function(id) {
-        return axios.delete("/api/books/" + id);
+    getBooks: function (query) {
+        console.log("You hit this");
+        return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query);
     }
 };

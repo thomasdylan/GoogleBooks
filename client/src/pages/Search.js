@@ -1,30 +1,13 @@
 import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
+import BookItems from '../components/bookResults';
 import API from "../utils/API";
 import '../App.css';
 
 class Search extends Component {
     state = {
         books: [],
-        title: "",
-        author: "",
-        description: "",
-        image: "",
-        link: ""
-    }
-
-    componentDidMount() {
-        this.loadBooks();
-    }
-
-    loadBooks = () => {
-        API.getBooks()
-            .then(res =>
-                this.setState({ books: res.data }),
-                console.log(this.state.books)
-            )
-            .catch(err => console.log(err));
-        
+        bookSearch: ""
     };
 
     handleInputChange = e => {
@@ -34,18 +17,38 @@ class Search extends Component {
         });
     };
 
-    handleSearch = e => {
+    handleFormSubmit = e => {
         e.preventDefault();
-        if (this.state.title) {
-            this.loadBooks();
-        }
-    }
+        API.getBooks(this.state.bookSearch)
+            .then(res => this.setState({ books: res.data.items }))
+            .catch(err => console.log(err));
+    };
+
+    
     
 
     render() {
         return (
             <div className="container">
-                <SearchForm />
+                <SearchForm
+                    search={this.state.bookSearch}
+                    change={this.handleInputChange}
+                    submit={this.handleFormSubmit}
+                />
+                <div>
+                    {this.state.books.map(book => {
+                        return (
+                            <BookItems
+                                key={book.id}
+                                title={book.volumeInfo.title}
+                                author={book.volumeInfo.authors[0]}
+                                description={book.volumeInfo.description}
+                                image={book.volumeInfo.imageLinks.smallThumbnail}
+                                link={book.volumeInfo.infoLink}
+                            />
+                        );
+                    })}
+                </div>
             </div>
         )
     }
