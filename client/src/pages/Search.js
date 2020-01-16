@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
-import BookItems from '../components/bookResults';
+import BookItems from '../components/BookItems';
 import API from "../utils/API";
 import '../App.css';
 
 class Search extends Component {
     state = {
         books: [],
-        bookSearch: ""
+        bookSearch: "",
+        title: "",
+        author: "",
+        description: "",
+        image: "",
+        link: ""
     };
 
     handleInputChange = e => {
@@ -23,9 +28,6 @@ class Search extends Component {
             .then(res => this.setState({ books: res.data.items }))
             .catch(err => console.log(err));
     };
-
-    
-    
 
     render() {
         return (
