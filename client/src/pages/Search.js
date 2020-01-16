@@ -8,11 +8,7 @@ class Search extends Component {
     state = {
         books: [],
         bookSearch: "",
-        title: "",
-        author: "",
-        description: "",
-        image: "",
-        link: ""
+        saved: {}
     };
 
     handleInputChange = e => {
@@ -28,6 +24,13 @@ class Search extends Component {
             .then(res => this.setState({ books: res.data.items }))
             .catch(err => console.log(err));
     };
+
+    saveBook = obj => {
+        this.setState({ saved: obj });
+        API.saveBook(obj)
+           .then(console.log("Save successful"))
+           .catch(err => console.log(err));
+    }
 
     render() {
         return (
@@ -47,6 +50,7 @@ class Search extends Component {
                                 description={book.volumeInfo.description}
                                 image={book.volumeInfo.imageLinks.smallThumbnail}
                                 link={book.volumeInfo.infoLink}
+                                save={this.saveBook}
                             />
                         );
                     })}

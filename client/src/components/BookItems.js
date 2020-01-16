@@ -1,7 +1,8 @@
 import React from 'react';
 import "../App.css";
 
-export default function BookItems({title, author, description, image, link}) {
+export default function BookItems({title, author, description, image, link, save}) {
+    const saved = {title: title, author: author, description: description, image: image, link: link}
     return (
         <div>
             <div class="card mb-3">
@@ -17,9 +18,9 @@ export default function BookItems({title, author, description, image, link}) {
                                 <small class="text-muted">By: {author}</small>
                             </p>
                             <p class="card-text">
-                                <a href={link} target="_blank"><small class="text-muted">{link}</small></a>
+                                <a href={link} target="_blank" rel="noopener noreferrer"><small class="text-muted">{link}</small></a>
                             </p>
-                            <button type="button" class="btn btn-success">Save</button>
+                            <button onClick={() => save(saved)} type="button" class="btn btn-success">Save</button>
                         </div>
                     </div>
                 </div>
