@@ -30,6 +30,7 @@ class Search extends Component {
         API.saveBook(obj)
            .then(console.log("Save successful"))
            .catch(err => console.log(err));
+        alert("Book has been saved");
     }
 
     render() {

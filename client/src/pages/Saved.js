@@ -19,6 +19,7 @@ class Saved extends Component {
         API.deleteBook(id)
             .then(() => console.log("Deleted book"))
             .catch(err => console.log(err));
+        alert("Book has been deleted");
         this.refreshPage();
     }
 
